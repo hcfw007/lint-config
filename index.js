@@ -1,6 +1,7 @@
 import js from '@eslint/js'
 import stylistic from '@stylistic/eslint-plugin'
 import importX from 'eslint-plugin-import-x'
+import globals from 'globals'
 import tseslint from 'typescript-eslint'
 
 const qualityRules = {
@@ -31,6 +32,12 @@ const styleRules = {
 export default tseslint.config(
   js.configs.recommended,
   {
+    languageOptions: {
+      globals: {
+        ...globals.node,
+        ...globals.browser,
+      },
+    },
     plugins: {
       '@stylistic': stylistic,
       'import-x': importX,
