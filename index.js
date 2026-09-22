@@ -9,7 +9,7 @@ const qualityRules = {
   'no-var': 'error',
   'prefer-const': 'error',
   'no-console': 'warn',
-  'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+  'no-unused-vars': ['error', {argsIgnorePattern: '^_'}],
 }
 
 const styleRules = {
@@ -26,6 +26,14 @@ const styleRules = {
       order: 'asc',
       caseInsensitive: true,
     },
+  }],
+}
+
+// 仅 TS：interface / type 成员的分隔符不归 @stylistic/semi 管，需要单独一条规则才能和无分号风格对齐。
+const tsStyleRules = {
+  '@stylistic/member-delimiter-style': ['error', {
+    multiline: {delimiter: 'none'},
+    singleline: {delimiter: 'semi', requireLast: false},
   }],
 }
 
@@ -51,8 +59,9 @@ export default tseslint.config(
     files: ['**/*.{ts,tsx,mts,cts}'],
     extends: [...tseslint.configs.recommended],
     rules: {
+      ...tsStyleRules,
       'no-unused-vars': 'off',
-      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+      '@typescript-eslint/no-unused-vars': ['error', {argsIgnorePattern: '^_'}],
     },
   },
 )

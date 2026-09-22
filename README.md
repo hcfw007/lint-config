@@ -47,6 +47,7 @@ export default [
   - 逗号悬挂仅多行 / Trailing commas only on multiline
   - 数组/对象括号内空格 / Spaces inside array & object brackets
   - import 按字母顺序分组 / Alphabetized, grouped imports
+  - interface / type 成员分隔符对齐无分号风格（仅 TS）/ Member delimiters match the no-semicolon style (TS only)
 
 ## License
 
